@@ -23,7 +23,7 @@ class Main extends PluginBase
 
     public function checkHeld(Player $player, Item $item)
     {
-        if ($item->getId() == $this->getConfig()->get("id") && $item->getId() == $this->getConfig()->get("meta")) {
+        if ($item->getName() == $this->getConfig()->get("name")) {
             $player->getEffects()->add(new CustomEffectInstance(VanillaEffects::LEVITATION(), 10000 * 100000, $this->getConfig()->get("force"), false));
         } else $player->getEffects()->remove(VanillaEffects::LEVITATION());
     }
